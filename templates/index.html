@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>Your Journey to <span class="highlight">Global Education</span></h1>
+    <p>AI-Powered Guidance • Verified Consultants • 100% Free Platform</p>
+</section>
+
+<!-- Image Slider -->
+<div class="slider-container">
+    <div class="slider">
+        <img src="https://images.unsplash.com/flagged/photo-1554473675-d0904f3cbf38?w=1920&h=600&fit=crop&q=80"
+            alt="University Campus">
+        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&h=500&fit=crop"
+            alt="Graduation Ceremony">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1400&h=500&fit=crop"
+            alt="Library Study">
+        <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1400&h=500&fit=crop"
+            alt="International Students">
+        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1400&h=500&fit=crop"
+            alt="Study Abroad">
+    </div>
+</div>
+
+<!-- Feature Cards -->
+<section id="services" class="features" style="padding-top: 3rem;">
+    <h2 class="section-title">Why GlobalPath AI?</h2>
+    <div class="cards-grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=200&fit=crop"
+                alt="AI Assistant"
+                style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+            <div class="icon">🤖</div>
+            <h3>AI Study Assistant</h3>
+            <p>Get instant answers about visas, scholarships, and university admissions for UK, USA, Canada, Germany,
+                and Australia.</p>
+            {% if session.get('user_id') %}
+            <a href="{{ url_for('dashboard') }}" class="btn-primary"
+                style="display: inline-block; margin-top: 1rem; text-decoration: none;">Chat Now</a>
+            {% else %}
+            <a href="{{ url_for('signup') }}" class="btn-primary"
+                style="display: inline-block; margin-top: 1rem; text-decoration: none;">Get Started Free</a>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop"
+                alt="Agent Verification"
+                style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+            <div class="icon">🛡️</div>
+            <h3>Agent Watchdog</h3>
+            <p>Protect yourself from scammers. Verify consultant licenses instantly with our comprehensive database.</p>
+            {% if session.get('user_id') %}
+            <a href="{{ url_for('verify_agent') }}" class="btn-primary"
+                style="display: inline-block; margin-top: 1rem; text-decoration: none;">Verify Now</a>
+            {% else %}
+            <a href="{{ url_for('signup') }}" class="btn-primary"
+                style="display: inline-block; margin-top: 1rem; text-decoration: none;">Get Started Free</a>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=200&fit=crop"
+                alt="Smart Matching"
+                style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+            <div class="icon">🎯</div>
+            <h3>Smart Matching</h3>
+            <p>Match with universities and scholarships based on your CGPA, budget, and career goals.</p>
+            {% if session.get('user_id') %}
+            <a href="{{ url_for('dashboard') }}" class="btn-primary"
+                style="display: inline-block; margin-top: 1rem; text-decoration: none;">Explore</a>
+            {% else %}
+            <a href="{{ url_for('signup') }}" class="btn-primary"
+                style="display: inline-block; margin-top: 1rem; text-decoration: none;">Get Started Free</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section style="background: white; padding: 3rem 1rem;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center;">
+            <div>
+                <h3 style="font-size: 3rem; color: var(--primary-blue); margin: 0;">15+</h3>
+                <p style="color: var(--text-gray); margin: 0.5rem 0 0 0;">Verified Consultants</p>
+            </div>
+            <div>
+                <h3 style="font-size: 3rem; color: var(--primary-blue); margin: 0;">500+</h3>
+                <p style="color: var(--text-gray); margin: 0.5rem 0 0 0;">Scholarships Tracked</p>
+            </div>
+            <div>
+                <h3 style="font-size: 3rem; color: var(--primary-blue); margin: 0;">24/7</h3>
+                <p style="color: var(--text-gray); margin: 0.5rem 0 0 0;">AI Support</p>
+            </div>
+            <div>
+                <h3 style="font-size: 3rem; color: var(--primary-blue); margin: 0;">100%</h3>
+                <p style="color: var(--text-gray); margin: 0.5rem 0 0 0;">Free Platform</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section style="background: var(--bg-light); padding: 3rem 1rem;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+        <h2 class="section-title">How It Works</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3rem;">
+            <div style="text-align: center;">
+                <div
+                    style="width: 80px; height: 80px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white;">
+                    1</div>
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Create Free Account</h3>
+                <p style="color: var(--text-gray);">Sign up in seconds. No credit card required, completely free
+                    forever.</p>
+            </div>
+            <div style="text-align: center;">
+                <div
+                    style="width: 80px; height: 80px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white;">
+                    2</div>
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Verify & Research</h3>
+                <p style="color: var(--text-gray);">Use Agent Watchdog to verify consultants and chat with AI for
+                    guidance.</p>
+            </div>
+            <div style="text-align: center;">
+                <div
+                    style="width: 80px; height: 80px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white;">
+                    3</div>
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Apply with Confidence</h3>
+                <p style="color: var(--text-gray);">Make informed decisions protected from scams.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="features" style="background: white; padding: 3rem 1rem;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 class="section-title">About GlobalPath AI</h2>
+
+        <div style="margin-bottom: 2rem;">
+            <h3 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.6rem;">Our Mission</h3>
+            <p style="font-size: 1.05rem; color: var(--text-gray); line-height: 1.8;">
+                We democratize study abroad opportunities for students in developing countries. Every year, thousands
+                lose money to fake consultants. We're changing that with AI and verification technology.
+            </p>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+            <h3 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.6rem;">The Problem</h3>
+            <div
+                style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary-blue);">
+                <ul style="color: var(--text-gray); line-height: 1.8; margin: 0;">
+                    <li>Ghost agents who disappear with deposits</li>
+                    <li>High consultancy fees ($500-$2000)</li>
+                    <li>Fake "100% visa guarantee" promises</li>
+                    <li>No way to verify consultant legitimacy</li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <h3 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.6rem;">Our Solution</h3>
+            <p style="font-size: 1.05rem; color: var(--text-gray); line-height: 1.8;">
+                🛡️ <strong>Protection:</strong> Instant consultant verification with RED/GREEN alerts<br>
+                🤖 <strong>Guidance:</strong> 24/7 AI expert advice - completely free
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="features" style="background: var(--bg-light); padding: 3rem 1rem;">
+    <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <h2 class="section-title">Get In Touch</h2>
+        <p style="font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem;">
+            Questions about study abroad? Need help verifying a consultant? We're here to help.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="mailto:support@globalpathAI.com" class="btn-primary">📧 Email Us</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

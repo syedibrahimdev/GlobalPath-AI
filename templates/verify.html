@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="verify-container" style="padding: 3rem 1rem; max-width: 800px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1rem;">🛡️ Agent Watchdog</h1>
+        <p style="font-size: 1.2rem; color: var(--text-gray);">
+            Protect yourself from fake consultants. Verify any study abroad agent instantly.
+        </p>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        <form method="POST" style="margin-bottom: 2rem;">
+            <div style="display: flex; gap: 1rem;">
+                <input type="text" name="query" placeholder="Enter Agent Name or License Number" required
+                    style="flex: 1; padding: 1rem; border-radius: 8px; border: 1px solid var(--border-gray); font-size: 1rem;">
+                <button type="submit" class="btn-nav" style="padding: 1rem 2rem;">Verify Now</button>
+            </div>
+        </form>
+
+        {% if result %}
+        {% if result.status == 'Verified' %}
+        <div class="alert alert-success" style="animation: fadeIn 0.5s;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="font-size: 3rem;">✅</div>
+                <div style="flex: 1;">
+                    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.5rem;">VERIFIED CONSULTANT</h3>
+                    <p style="margin: 0.3rem 0;"><strong>Name:</strong> {{ result.name }}</p>
+                    <p style="margin: 0.3rem 0;"><strong>License:</strong> {{ result.license_number }}</p>
+                    <p style="margin: 0.3rem 0;"><strong>Rating:</strong> ⭐ {{ result.rating }}/5.0</p>
+                    <p style="margin: 0.3rem 0;"><strong>Location:</strong> {{ result.location }}</p>
+                    <p style="margin: 0.3rem 0;"><strong>Verified Since:</strong> {{ result.verified_since }}</p>
+                </div>
+            </div>
+            <p style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #10B981;">
+                ✓ This consultant is registered and verified. Safe to proceed.
+            </p>
+        </div>
+
+        {% elif result.status == 'Blacklisted' %}
+        <div class="alert alert-danger" style="animation: fadeIn 0.5s;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="font-size: 3rem;">🚨</div>
+                <div style="flex: 1;">
+                    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.5rem;">⚠️ BLACKLISTED - DO NOT PROCEED</h3>
+                    <p style="margin: 0.3rem 0;"><strong>Name:</strong> {{ result.name }}</p>
+                    <p style="margin: 0.3rem 0;"><strong>License:</strong> {{ result.license_number }}</p>
+                    <p style="margin: 0.3rem 0;"><strong>Reason:</strong> {{ result.reason }}</p>
+                </div>
+            </div>
+            <p style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #EF4444; font-weight: bold;">
+                ⚠️ WARNING: This consultant has been flagged for fraudulent activities. DO NOT share any money or
+                personal documents.
+            </p>
+        </div>
+
+        {% elif result.status == 'Caution' %}
+        <div class="alert alert-warning" style="animation: fadeIn 0.5s;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="font-size: 3rem;">⚠️</div>
+                <div style="flex: 1;">
+                    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.5rem;">PROCEED WITH CAUTION</h3>
+                    <p style="margin: 0.3rem 0;"><strong>Name:</strong> {{ result.name }}</p>
+                    <p style="margin: 0.3rem 0;"><strong>License:</strong> {{ result.license_number }}</p>
+                    <p style="margin: 0.3rem 0;"><strong>Rating:</strong> ⭐ {{ result.rating }}/5.0</p>
+                    <p style="margin: 0.3rem 0;"><strong>Location:</strong> {{ result.location }}</p>
+                    <p style="margin: 0.3rem 0;"><strong>Reason:</strong> {{ result.reason }}</p>
+                </div>
+            </div>
+            <p style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #F59E0B;">
+                ⚠️ This consultant has some complaints. Verify all claims independently before proceeding.
+            </p>
+        </div>
+
+        {% else %}
+        <div class="alert alert-warning" style="animation: fadeIn 0.5s;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="font-size: 3rem;">❓</div>
+                <div style="flex: 1;">
+                    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.5rem;">NOT FOUND IN DATABASE</h3>
+                    <p style="margin: 0;">{{ result.message }}</p>
+                </div>
+            </div>
+            <p style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #F59E0B;">
+                ⚠️ This consultant is not in our verified database. Request official license documentation before
+                proceeding.
+            </p>
+        </div>
+        {% endif %}
+        {% endif %}
+    </div>
+
+    <div style="margin-top: 3rem; background: #EFF6FF; padding: 2rem; border-radius: 12px;">
+        <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">🔍 How to Stay Safe</h3>
+        <ul style="color: var(--text-gray); line-height: 2;">
+            <li>Never pay 100% fees upfront</li>
+            <li>Verify consultant license with official government databases</li>
+            <li>Avoid agents who guarantee "100% visa approval"</li>
+            <li>Check online reviews from multiple sources</li>
+            <li>Get all agreements in writing</li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Global Education Services",
+        "license_number": "GX-101",
+        "status": "Verified",
+        "rating": 4.8,
+        "location": "Islamabad, Pakistan",
+        "verified_since": "2020"
+    },
+    {
+        "name": "Study Abroad Consultants Ltd",
+        "license_number": "SAC-2045",
+        "status": "Verified",
+        "rating": 4.6,
+        "location": "Lahore, Pakistan",
+        "verified_since": "2019"
+    },
+    {
+        "name": "Fake Consultant Pvt",
+        "license_number": "BAD-666",
+        "status": "Blacklisted",
+        "rating": 0,
+        "location": "Unknown",
+        "reason": "Multiple fraud complaints, unlicensed operations"
+    },
+    {
+        "name": "Dream Visa Scammers",
+        "license_number": "FAKE-999",
+        "status": "Blacklisted",
+        "rating": 0,
+        "location": "Unknown",
+        "reason": "100% visa guarantee scam, money laundering"
+    },
+    {
+        "name": "Overseas Education Hub",
+        "license_number": "OEH-3421",
+        "status": "Verified",
+        "rating": 4.9,
+        "location": "Karachi, Pakistan",
+        "verified_since": "2018"
+    },
+    {
+        "name": "Quick Visa Solutions",
+        "license_number": "QVS-7788",
+        "status": "Caution",
+        "rating": 2.5,
+        "location": "Rawalpindi, Pakistan",
+        "reason": "Recent complaints about hidden fees"
+    },
+    {
+        "name": "International Study Partners",
+        "license_number": "ISP-5501",
+        "status": "Verified",
+        "rating": 4.7,
+        "location": "Multan, Pakistan",
+        "verified_since": "2021"
+    },
+    {
+        "name": "Ghost Agents Inc",
+        "license_number": "SCAM-123",
+        "status": "Blacklisted",
+        "rating": 0,
+        "location": "Unknown",
+        "reason": "Disappeared with student deposits, fake documents"
+    },
+    {
+        "name": "Bright Future Consultancy",
+        "license_number": "BFC-9012",
+        "status": "Verified",
+        "rating": 4.5,
+        "location": "Faisalabad, Pakistan",
+        "verified_since": "2022"
+    },
+    {
+        "name": "Easy Visa Fraudsters",
+        "license_number": "EVF-4455",
+        "status": "Blacklisted",
+        "rating": 0,
+        "location": "Unknown",
+        "reason": "Fake university admissions, forged documents"
+    },
+    {
+        "name": "Premier Education Advisors",
+        "license_number": "PEA-6789",
+        "status": "Verified",
+        "rating": 4.9,
+        "location": "Islamabad, Pakistan",
+        "verified_since": "2017"
+    },
+    {
+        "name": "Shady Consultants",
+        "license_number": "SHD-3333",
+        "status": "Caution",
+        "rating": 2.8,
+        "location": "Lahore, Pakistan",
+        "reason": "Inconsistent service quality, delayed processing"
+    },
+    {
+        "name": "Trusted Pathways",
+        "license_number": "TP-8899",
+        "status": "Verified",
+        "rating": 4.8,
+        "location": "Peshawar, Pakistan",
+        "verified_since": "2020"
+    },
+    {
+        "name": "Visa Guarantee Scam Co",
+        "license_number": "VGS-0001",
+        "status": "Blacklisted",
+        "rating": 0,
+        "location": "Unknown",
+        "reason": "False 100% visa guarantee claims, unlicensed"
+    },
+    {
+        "name": "Excellence Education Group",
+        "license_number": "EEG-1122",
+        "status": "Verified",
+        "rating": 4.6,
+        "location": "Quetta, Pakistan",
+        "verified_since": "2021"
+    }
+]

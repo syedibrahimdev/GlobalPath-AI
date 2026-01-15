@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalPath AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">GlobalPath AI 🌍</div>
+        <ul class="nav-links" style="position: absolute; left: 50%; transform: translateX(-50%);">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('index') }}#about">About</a></li>
+            <li><a href="{{ url_for('index') }}#services">Service</a></li>
+            <li><a href="{{ url_for('index') }}#contact">Contact</a></li>
+        </ul>
+        <ul class="nav-links" style="margin-left: auto;">
+            {% if session.get('user_id') %}
+            <li><a href="{{ url_for('dashboard') }}" class="btn-nav">Dashboard</a></li>
+            <li><a href="{{ url_for('logout') }}" class="btn-nav-outline">Logout</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}" class="btn-nav">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flashes">
+            {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 GlobalPath AI. Built for the Future of Education.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+</body>
+
+</html>
